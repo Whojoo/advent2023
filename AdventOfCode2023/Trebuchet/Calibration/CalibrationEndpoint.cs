@@ -1,4 +1,5 @@
 using AdventOfCode2023.RequestBinders;
+using AdventOfCode2023.Trebuchet.Models;
 
 namespace AdventOfCode2023.Trebuchet.Calibration;
 
