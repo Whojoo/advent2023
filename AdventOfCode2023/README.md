@@ -6,3 +6,4 @@ I'm basically trying out stuff while doing puzzles.
 Since the days and names are not the same:
 - Day 1: Trebuchet
   - Assignment 1: Calibration
+  - Assignment 2: Advanced Calibration
