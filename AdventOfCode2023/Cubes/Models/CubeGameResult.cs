@@ -5,5 +5,5 @@ public record CubeGameResult(string Assignment, List<int> PossibleIDs, int Possi
 public static class CubeGameResultExtensions
 {
     public static CubeGameResponse ToResponse(this CubeGameResult result)
-        => new(result.Assignment, result.PossibleIDs, result.PossibleSum);
+        => new(result.Assignment, result.PossibleSum);
 }
