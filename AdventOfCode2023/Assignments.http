@@ -1,23 +1,31 @@
+# Day 1
 ### Calibration test
 POST https://localhost:5001/api/trebuchet/calibration
 Content-Type: text/plain
 
-< ./Calibration/TestInput.txt
+< ./Trebuchet/Calibration/TestInput.txt
 
 ### Calibration
 POST https://localhost:5001/api/trebuchet/calibration
 Content-Type: text/plain
 
-< ./Calibration/Input.txt
+< ./Trebuchet/Calibration/Input.txt
 
 ### Advanced Calibration Test
 POST https://localhost:5001/api/trebuchet/advanced-calibration
 Content-Type: text/plain
 
-< ./AdvancedCalibration/TestInput.txt
+< ./Trebuchet/AdvancedCalibration/TestInput.txt
 
 ### Advanced Calibration
 POST https://localhost:5001/api/trebuchet/advanced-calibration
 Content-Type: text/plain
 
-< ./AdvancedCalibration/Input.txt
+< ./Trebuchet/AdvancedCalibration/Input.txt
+
+# Day 2
+### Simple Cubes Test
+POST https://localhost:5001/api/cubes
+Content-Type: text/plain
+
+< ./Cubes/SimpleGame/Input.txt

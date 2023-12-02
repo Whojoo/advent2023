@@ -1,9 +1,10 @@
 using AdventOfCode2023.RequestBinders;
 using AdventOfCode2023.Trebuchet.Models;
+using AdventOfCode2023.Utils;
 
 namespace AdventOfCode2023.Trebuchet.AdvancedCalibration;
 
-public class AdvancedCalibrationEndpoint : Endpoint<string, CalibrationResponse>
+public class AdvancedCalibrationEndpoint : PlainTextEndpoint<CalibrationResponse>
 {
     private readonly ILogger<AdvancedCalibrationEndpoint> _logger;
     private readonly IAdvancedCalibrationService _advancedCalibrationService;
@@ -15,12 +16,9 @@ public class AdvancedCalibrationEndpoint : Endpoint<string, CalibrationResponse>
         _advancedCalibrationService = advancedCalibrationService;
     }
 
-    public override void Configure()
+    protected override void CustomConfigure()
     {
-        Post("/api/trebuchet/advanced-calibration");
-        AllowAnonymous();
-        Options(x => x.Accepts<string>("text/plain"));
-        RequestBinder(new PlainTextRequestBinder());
+        Post("/api/trebuchet/calibration");
     }
 
     public override Task HandleAsync(string req, CancellationToken ct)
