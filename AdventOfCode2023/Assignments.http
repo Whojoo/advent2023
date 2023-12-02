@@ -30,6 +30,12 @@ Content-Type: text/plain
 
 < ./Cubes/SimpleGame/Input.txt
 
+### Simple Cubes Test
+POST https://localhost:5001/api/cubes
+Content-Type: text/plain
+
+< ./Cubes/ToughGame/Input.txt
+
 ### Cubes
 POST https://localhost:5001/api/cubes
 Content-Type: text/plain
