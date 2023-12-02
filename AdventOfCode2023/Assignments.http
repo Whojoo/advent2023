@@ -1,0 +1,43 @@
+# Day 1
+### Calibration test
+POST https://localhost:5001/api/trebuchet/calibration
+Content-Type: text/plain
+
+< ./Trebuchet/Calibration/TestInput.txt
+
+### Calibration
+POST https://localhost:5001/api/trebuchet/calibration
+Content-Type: text/plain
+
+< ./Trebuchet/Calibration/Input.txt
+
+### Advanced Calibration Test
+POST https://localhost:5001/api/trebuchet/advanced-calibration
+Content-Type: text/plain
+
+< ./Trebuchet/AdvancedCalibration/TestInput.txt
+
+### Advanced Calibration
+POST https://localhost:5001/api/trebuchet/advanced-calibration
+Content-Type: text/plain
+
+< ./Trebuchet/AdvancedCalibration/Input.txt
+
+# Day 2
+### Simple Cubes Test
+POST https://localhost:5001/api/cubes
+Content-Type: text/plain
+
+< ./Cubes/SimpleGame/Input.txt
+
+### Simple Cubes Test
+POST https://localhost:5001/api/cubes
+Content-Type: text/plain
+
+< ./Cubes/ToughGame/Input.txt
+
+### Cubes
+POST https://localhost:5001/api/cubes
+Content-Type: text/plain
+
+< ./Cubes/Input.txt
