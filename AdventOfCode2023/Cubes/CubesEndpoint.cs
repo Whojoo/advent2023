@@ -32,10 +32,12 @@ public class CubesEndpoint : PlainTextEndpoint<List<CubeGameResponse>>
             var result = service.CalculatePossibleGames(req);
             var response = result.ToResponse();
             _logger.LogInformation(
-                "Assignment: {Assignment}\n}Result: {Result}\nResponse: {Response}", 
+                "Assignment: {Assignment}\nResult: {Result}\nResponse: {Response}", 
                 service.AssignmentName, 
                 result, 
                 response);
+            
+            responses.Add(response);
         }
         
         return SendAsync(responses, cancellation: ct);

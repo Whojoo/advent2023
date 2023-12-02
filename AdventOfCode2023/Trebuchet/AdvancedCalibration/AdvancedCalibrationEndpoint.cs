@@ -18,7 +18,7 @@ public class AdvancedCalibrationEndpoint : PlainTextEndpoint<CalibrationResponse
 
     protected override void CustomConfigure()
     {
-        Post("/api/trebuchet/calibration");
+        Post("/api/trebuchet/advanced-calibration");
     }
 
     public override Task HandleAsync(string req, CancellationToken ct)
