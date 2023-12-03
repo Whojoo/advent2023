@@ -1,4 +1,5 @@
 using AdventOfCode2023.Cubes;
+using AdventOfCode2023.EngineParts;
 using AdventOfCode2023.Trebuchet;
 using AdventOfCode2023.Trebuchet.Calibration;
 
@@ -9,7 +10,8 @@ builder.Services.AddFastEndpoints();
 
 builder.Services
     .AddTrebuchet()
-    .AddCubes();
+    .AddCubes()
+    .AddEngineParts();
 
 var app = builder.Build();
 
