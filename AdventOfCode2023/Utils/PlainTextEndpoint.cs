@@ -4,13 +4,21 @@ namespace AdventOfCode2023.Utils;
 
 public abstract class PlainTextEndpoint<TResponse> : Endpoint<string, TResponse>
 {
+    protected abstract string Path { get; }
+    
     public sealed override void Configure()
     {
-        CustomConfigure();
+        Post(Path);
         AllowAnonymous();
         Options(x => x.Accepts<string>("text/plain"));
         RequestBinder(new PlainTextRequestBinder());
     }
 
-    protected abstract void CustomConfigure();
+    public sealed override Task HandleAsync(string req, CancellationToken ct)
+    {
+        var response = ExecuteEndpoint(req);
+        return SendAsync(response, cancellation: ct);
+    }
+
+    protected abstract TResponse ExecuteEndpoint(string input);
 }

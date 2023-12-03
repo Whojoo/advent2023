@@ -16,20 +16,17 @@ public class CubesEndpoint : PlainTextEndpoint<List<CubeGameResponse>>
         _cubesGameCalculationServices = cubesGameCalculationServices;
     }
 
-    protected override void CustomConfigure()
-    {
-        Post("/api/cubes");
-    }
+    protected override string Path => "/api/cubes";
 
-    public override Task HandleAsync(string req, CancellationToken ct)
+    protected override List<CubeGameResponse> ExecuteEndpoint(string input)
     {
-        _logger.LogInformation("Received input: {Input}", req);
+        _logger.LogInformation("Received input: {Input}", input);
         
         var responses = new List<CubeGameResponse>();
 
         foreach (var service in _cubesGameCalculationServices)
         {
-            var result = service.CalculatePossibleGames(req);
+            var result = service.CalculatePossibleGames(input);
             var response = result.ToResponse();
             _logger.LogInformation(
                 "Assignment: {Assignment}\nResult: {Result}\nResponse: {Response}", 
@@ -39,7 +36,7 @@ public class CubesEndpoint : PlainTextEndpoint<List<CubeGameResponse>>
             
             responses.Add(response);
         }
-        
-        return SendAsync(responses, cancellation: ct);
+
+        return responses;
     }
 }

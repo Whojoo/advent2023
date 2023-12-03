@@ -1,4 +1,3 @@
-using AdventOfCode2023.RequestBinders;
 using AdventOfCode2023.Trebuchet.Models;
 using AdventOfCode2023.Utils;
 
@@ -16,16 +15,13 @@ public class AdvancedCalibrationEndpoint : PlainTextEndpoint<CalibrationResponse
         _advancedCalibrationService = advancedCalibrationService;
     }
 
-    protected override void CustomConfigure()
-    {
-        Post("/api/trebuchet/advanced-calibration");
-    }
+    protected override string Path => "/api/trebuchet/advanced-calibration";
 
-    public override Task HandleAsync(string req, CancellationToken ct)
+    protected override CalibrationResponse ExecuteEndpoint(string input)
     {
-        var result = _advancedCalibrationService.Calibrate(req);
+        var result = _advancedCalibrationService.Calibrate(input);
         var response = result.ToResponse();
-        _logger.LogInformation("Request: {Request}\nResult: {Result}\nResponse: {Response}", req, result, response);
-        return SendAsync(response, cancellation: ct);
+        _logger.LogInformation("Request: {Request}\nResult: {Result}\nResponse: {Response}", input, result, response);
+        return response;
     }
 }

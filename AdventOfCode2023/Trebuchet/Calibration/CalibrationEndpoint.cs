@@ -15,16 +15,13 @@ public class CalibrationEndpoint : PlainTextEndpoint<CalibrationResponse>
         _calibrationService = calibrationService;
     }
 
-    protected override void CustomConfigure()
-    {
-        Post("/api/trebuchet/calibration");
-    }
+    protected override string Path => "/api/trebuchet/calibration";
 
-    public override Task HandleAsync(string req, CancellationToken ct)
+    protected override CalibrationResponse ExecuteEndpoint(string req)
     {
         var result = _calibrationService.Calibrate(req);
         var response = result.ToResponse();
         _logger.LogInformation("Request: {Request}\nResult: {Result}\nResponse: {Response}", req, result, response);
-        return SendAsync(response, cancellation: ct);
+        return response;
     }
 }

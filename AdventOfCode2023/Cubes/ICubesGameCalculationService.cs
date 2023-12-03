@@ -1,10 +1,9 @@
 using AdventOfCode2023.Cubes.Models;
+using AdventOfCode2023.Utils;
 
 namespace AdventOfCode2023.Cubes;
 
-public interface ICubesGameCalculationService
+public interface ICubesGameCalculationService : IAssignmentService
 {
-    string AssignmentName { get; }
-    
     CubeGameResult CalculatePossibleGames(string input);
 }

@@ -30,7 +30,7 @@ Content-Type: text/plain
 
 < ./Cubes/SimpleGame/Input.txt
 
-### Simple Cubes Test
+### Tough Cubes Test
 POST https://localhost:5001/api/cubes
 Content-Type: text/plain
 
@@ -41,3 +41,10 @@ POST https://localhost:5001/api/cubes
 Content-Type: text/plain
 
 < ./Cubes/Input.txt
+
+# Day 3
+### Engine Parts
+POST https://localhost:5001/api/engine-parts
+Content-Type: text/plain
+
+< ./EngineParts/Input.txt
